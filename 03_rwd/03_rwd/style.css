@@ -1,0 +1,350 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+h1{
+    color: rgb(243, 214, 157);
+}
+body{
+    background-color: #eef0f2;
+}
+header,main,aside,footer{
+    background-color: #ffc477;
+    margin: 20px;
+    box-shadow: 0px 5px 5px  #b0b0b0;
+}
+
+header {
+    margin: auto;
+    width: 80%;
+    height: 150px;
+    background-color: #ffa0a8;
+    /* 使用 Flexbox 實現內容置中 */
+    display: flex;
+    border-radius: 60px;
+
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+nav ul {
+    /* 保持原來的 Flexbox 佈局 */
+    display: flex;
+    margin-top: 20px;
+    padding: 0; /* 移除 ul 預設的 padding */
+}
+
+nav ul li {
+    margin: 0 50px;
+    list-style: none;
+    font-size: 0.9em;
+    /* 關鍵步驟 1: 隱藏溢出內容，讓動畫看起來像是文字從 li 區域內部滑入 */
+    /* 設置 li 的高度，確保文字有足夠的空間來移動 */
+    height: 1.5em; /* 根據 font-size 調整，確保能完整容納一行文字 */
+    position: relative; /* 如果需要更複雜的動畫，可以設置，但這裡的 overflow:hidden 已經足夠 */
+}
+
+nav ul li a {
+    /* 關鍵步驟 2: 設置動畫過渡效果 */
+    transition: transform 0.3s ease-out; /* 0.3秒的動畫，使用 ease-out 減速 */
+    text-decoration: none; /* 移除超連結下劃線 */
+    color: inherit; /* 繼承父元素的顏色，如果沒有設置則使用瀏覽器預設 */
+    /* 關鍵步驟 3: 初始狀態將文字向下移動，使其隱藏在 li 區域下方 */
+    /* 讓 <a> 變成 block 元素才能更好地控制 transform */
+    display: block; 
+}
+
+/* 額外添加一個容器來顯示原始文字，並讓它滑出 */
+nav ul li .text-out {
+    /* 這是原始文字，滑鼠移入時將它向上移出 */
+    display: block;
+    transform: translateY(-100%); /* 初始位置向上移動，使其隱藏 */
+    transition: transform 0.3s ease-out;
+    position: absolute; /* 相對於 li 定位 */
+    top: 0;
+    left: 0;
+    font-size: 1em; /* 與 li 的 font-size 一致 */
+    /* 確保其在 li 範圍內 */
+    width: 100%;
+}
+
+/* 關鍵步驟 4: 滑鼠移入時的動畫效果 */
+nav ul li:hover a {
+    /* 將新文字從底部滑入到正常位置 */
+    transform: translateY(0);
+}
+
+nav ul li:hover .text-out {
+    /* 將舊文字向上滑出 */
+    transform: translateY(-200%); /* 向上移動超過 li 區域 */
+}
+
+/* 為了讓這個效果生效，您的 HTML 結構需要微調 */
+main{
+    width: 75%;
+    background-color: #ffb4c8;
+    padding: 20px;
+    border-radius: 40px;
+}
+.b1{
+    display: flex;
+    margin: 20px 0;
+    align-items: center;
+}
+.b1:nth-last-of-type(1){
+    flex-direction: row-reverse;
+}
+.b1:nth-last-of-type(2) img{
+    margin-right: 20px;
+}
+.b1:nth-last-of-type(1) img{
+    margin-left: 20px;
+ }
+.b1 img{
+    width: 35%;
+    display: block;
+}
+
+.newsDiv{
+    margin: 20px 0;
+    display: flex;
+}
+.newsImg{
+    width: 100px;
+    height: 100px;
+    background-color: #ffffff;
+    overflow: hidden;
+}
+.newsTxt{
+    width: 100%;
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.newsTxt button{
+    width: 100px;
+    margin-left: auto;
+}
+.newsImg img{
+    width: 100%;
+    position: relative;
+}
+
+
+
+.newsDiv:nth-of-type(2) img{
+    left:1px;
+    
+}
+.newsDiv:nth-of-type(3) img{
+    width: 105%;
+   
+}
+
+
+
+
+aside{
+    width: 25%;
+    height: 600px;
+    background-color: #f977ab;
+    border-radius: 40px;
+}
+#photo{
+    width: 150px;
+    height: 150px;
+    background-color: #eef0f2;
+    margin: auto;
+    margin-top: 60px;
+    border: 10px #eef0f2 solid;
+    border-radius: 150px;
+    overflow: hidden;
+}
+#photo img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;   /* 圖片等比例填滿圓形 */
+}
+aside p{
+    text-align: center;
+    margin-top: 25px;
+    font-size: 1.15em;
+}
+#a_text{
+    padding: 0 0px;
+}
+footer{
+    margin:auto;
+    width: 80%;
+    height: 50px;
+    background-color: #ff77a9;
+    border-radius: 40px;
+     display: flex;
+    justify-content: center; /* 水平置中 */
+    align-items: flex-end;   /* 垂直靠下 */
+    padding-bottom: 40px;   /* 距離底部一點空間（好看） */
+}
+#box1{
+   margin: auto;
+   width: 80%;
+   display: flex;
+   align-self: flex-start;
+}
+
+/* =============================================
+   RWD 響應式設計 — 平板 (≤ 900px)
+   ============================================= */
+@media (max-width: 900px) {
+    header {
+        width: 90%;
+        height: auto;
+        padding: 15px 20px;
+        border-radius: 40px;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 6px;
+    }
+
+    nav ul li {
+        margin: 0 15px;
+    }
+
+    #box1 {
+        width: 92%;
+        flex-direction: column;
+    }
+
+    aside {
+        width: 100%;
+        height: auto;
+        padding-bottom: 20px;
+        border-radius: 30px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 10px 20px;
+    }
+
+    #photo {
+        margin-top: 20px;
+        flex-shrink: 0;
+    }
+
+    aside p {
+        margin-top: 0;
+        font-size: 1em;
+    }
+
+    main {
+        width: 100%;
+        border-radius: 30px;
+        box-sizing: border-box;
+    }
+
+    footer {
+        width: 90%;
+        height: auto;
+        padding: 15px 20px;
+        border-radius: 30px;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+}
+
+/* =============================================
+   RWD 響應式設計 — 手機 (≤ 600px)
+   ============================================= */
+@media (max-width: 600px) {
+    header {
+        width: 94%;
+        border-radius: 25px;
+        padding: 12px 10px;
+    }
+
+    h1 {
+        font-size: 1.2em;
+        text-align: center;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 4px;
+        margin-top: 10px;
+    }
+
+    nav ul li {
+        margin: 0 8px;
+        font-size: 0.85em;
+        height: auto;
+    }
+
+    #box1 {
+        width: 96%;
+        flex-direction: column;
+        margin: 0 auto;
+    }
+
+    aside {
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 20px;
+        padding-bottom: 15px;
+    }
+
+    #photo {
+        width: 120px;
+        height: 120px;
+        margin-top: 15px;
+    }
+
+    aside p {
+        font-size: 0.95em;
+        margin-top: 8px;
+    }
+
+    main {
+        width: 100%;
+        border-radius: 20px;
+        padding: 15px;
+        box-sizing: border-box;
+    }
+
+    .b1 {
+        flex-direction: column !important;
+        align-items: flex-start;
+    }
+
+    .b1 img {
+        width: 100% !important;
+        margin: 0 0 10px 0 !important;
+    }
+
+    .newsImg {
+        width: 80px;
+        height: 80px;
+        flex-shrink: 0;
+    }
+
+    .newsTxt button {
+        width: 80px;
+    }
+
+    footer {
+        width: 94%;
+        border-radius: 20px;
+        padding: 12px 10px;
+        height: auto;
+        align-items: center;
+        text-align: center;
+        font-size: 0.85em;
+    }
+}

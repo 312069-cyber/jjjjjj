@@ -1,0 +1,136 @@
+/* 表單基礎設定 */
+.contact-form {
+    margin-top: 20px;
+}
+
+.form-intro {
+    margin-bottom: 25px;
+    font-size: 0.95rem;
+    color: #887063;
+}
+
+/* 網格佈局 */
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.full-width {
+    grid-column: span 2;
+}
+
+/* 標籤樣式 */
+label {
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #5A4A42;
+}
+
+.required {
+    color: #EF82A1;
+    margin-right: 4px;
+}
+
+/* 輸入框通用樣式 */
+.styled-input, .styled-select, .styled-textarea {
+    padding: 12px 15px;
+    border: 2px solid #E0E0E0;
+    border-radius: 12px;
+    background-color: #F9FBFF; /* 淡淡的藍底，模擬截圖顏色 */
+    font-size: 1rem;
+    transition: all 0.3s;
+}
+
+.styled-input:focus, .styled-textarea:focus {
+    outline: none;
+    border-color: #EF82A1;
+    box-shadow: 0 0 8px rgba(239, 130, 161, 0.2);
+}
+
+/* 單選鈕樣式 */
+.radio-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.radio-group .styled-input {
+    flex: 1;
+}
+
+.radio-label {
+    font-weight: normal;
+    white-space: nowrap;
+    margin-bottom: 0;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* 提示字樣 */
+.input-hint {
+    color: #B0A090;
+    font-size: 0.85rem;
+    margin-top: 4px;
+}
+
+/* 按鈕樣式 */
+.form-action {
+    
+    text-align: center;
+    margin-top: 10px;
+}
+
+.submit-btn {
+    background-color: #fff8fc;
+    color: #d479b6;
+    border: 2px solid #e099bd;
+    padding: 10px 40px;
+    border-radius: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.submit-btn:hover {
+    background-color: #e42bb6;
+    color: white;
+}
+
+/* 手機版調整 */
+@media (max-width: 600px) {
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+    .full-width {
+        grid-column: span 1;
+    }
+}
+
+/* =============================================
+   RWD 響應式設計補充
+   ============================================= */
+@media (max-width: 480px) {
+    .styled-input,
+    .styled-select,
+    .styled-textarea {
+        font-size: 0.9rem;
+        padding: 10px 12px;
+    }
+
+    .radio-group {
+        flex-wrap: wrap;
+    }
+
+    .submit-btn {
+        width: 100%;
+        padding: 12px 20px;
+    }
+}

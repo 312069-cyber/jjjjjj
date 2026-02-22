@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="album.css">
+    <style>
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1><a href="index.html">處二孝 吳沛諭</a></h1>
+        <nav>
+            <ul>
+                <li><a href="about.html">關於我</a></li>
+                <li><a href="hobit.html">我的興趣</a></li>
+                <li><a href="skill.html">我的專長</a></li>
+                <li><a href="album.html">我的相簿</a></li>
+                <li><a href="contact.html">聯絡我</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div id="box1">
+        <aside>
+        <div id="photo">
+            <img src="image/1717.jpg" alt="">
+        </div>
+            
+           <p><b>姓名:HELLO KITTY</b></p>
+        <p><b>星座:天蠍座</b></p>
+        <p><b>生日:11月1日</b></p>
+        <p id="a_text"><b>簡介:日本三麗鷗於1974年推出的全球知名卡通角色</b></p>
+        </aside>
+    <main>
+            <section class="gallery-header">
+                <h2>🎀 HELLO KITTY 的可愛時光</h2>
+                <p>甜美生活，分享幸福</p>
+            </section>
+       
+            <section class="image-gallery">
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="image/1010.jpg" alt="" data-full="image/1010.jpg">
+                        <div class="caption">HELLO KITTY 可愛登場</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="image/1111.jpg" alt="" data-full="image/1111.jpg">
+                        <div class="caption">甜點時刻</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="image/1212.jpg" alt="" data-full="image/11.jpg">
+                        <div class="caption">夢想小女孩</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="image/1313.jpg" alt="" data-full="image/1313.jpg">
+                        <div class="caption">微笑力量</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="image/1414.jpg" alt="" data-full="image/1414.jpg">
+                        <div class="caption">溫柔陪伴</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="image/1515.jpg" alt="" data-full="image/1515.jpg">
+                        <div class="caption">可愛無極限</div>
+                    </div>
+                    </div>
+            </section>
+       
+            <div id="lightbox" class="lightbox">
+                <span class="close-btn">&times;</span>
+                <img class="lightbox-content" id="lightbox-img" src="" alt="">
+                <div id="lightbox-caption" class="lightbox-caption"></div>
+            </div>
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const galleryItems = document.querySelectorAll('.gallery-item img');
+                const lightbox = document.getElementById('lightbox');
+                const lightboxImg = document.getElementById('lightbox-img');
+                const lightboxCaption = document.getElementById('lightbox-caption');
+                const closeBtn = document.querySelector('.close-btn');
+       
+                galleryItems.forEach(item => {
+                    item.addEventListener('click', () => {
+                        lightbox.style.display = 'flex';
+                        lightboxImg.src = item.dataset.full; // 使用 data-full 屬性獲取大圖連結
+                        lightboxCaption.innerHTML = item.alt;
+                    });
+                });
+       
+                closeBtn.addEventListener('click', () => {
+                    lightbox.style.display = 'none';
+                });
+       
+                // 點擊燈箱外部區域也關閉
+                lightbox.addEventListener('click', (e) => {
+                    if (e.target === lightbox) {
+                        lightbox.style.display = 'none';
+                    }
+                });
+       
+                // 鍵盤 ESC 關閉燈箱
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape' && lightbox.style.display === 'flex') {
+                        lightbox.style.display = 'none';
+                    }
+                });
+            });
+        </script>
+        </main>
+    </div>
+    
+<footer>
+    <p>Copyright © Rouchen All Rights Reserved. Designed By 吳沛諭</p>
+</footer>
+
+</body>
+</html>
