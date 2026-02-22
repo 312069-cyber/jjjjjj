@@ -1,0 +1,29 @@
+aside,
+main {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+main section:last-child {
+    margin-bottom: 15px; /* 原本可能是 40~60px，改小 */
+}
+
+section {
+    background-color: #f4f6f8;
+    padding: 50px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+}
+
+h2 {
+    color: #b6077c;
+    margin-bottom: 10px;
+}
+
+p {
+    color: #333;
+    line-height: 1.8;
+}
+
+.intro {
+    background-color: #e3f2fd;
+}

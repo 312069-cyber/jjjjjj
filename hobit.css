@@ -1,0 +1,52 @@
+main {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    font-family: "Microsoft JhengHei", sans-serif;
+    line-height: 1.8;
+}
+
+/* 共用 section 樣式 */
+section {
+    background-color: #ffffff;
+    padding: 25px 30px;
+    margin-bottom: 35px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+/* 標題 */
+section h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    border-left: 6px solid #fface7;
+    padding-left: 12px;
+    color: #333;
+}
+
+/* 文字 */
+section p {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+/* 興趣區塊 */
+.hobby {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hobby:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+}
+
+/* 健身配色 */
+.fitness h2 {
+    border-left-color: #7ba5ad;
+}
+
+/* 美食配色 */
+.food h2 {
+    border-left-color: hsl(60, 65%, 52%);
+}
